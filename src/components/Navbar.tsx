@@ -16,6 +16,7 @@ export default function Navbar() {
           <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
           <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
           <li><a href="#contacts" onClick={() => setMenuOpen(false)}>Contacts</a></li>
+          <li><a href="#track" className="nav-track" onClick={() => setMenuOpen(false)}>📦 Track Shipment</a></li>
         </ul>
       </div>
     </nav>

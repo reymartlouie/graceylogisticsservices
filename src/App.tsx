@@ -5,6 +5,7 @@ import Services from './components/Services'
 import WhyGracey from './components/WhyGracey'
 import VisionMission from './components/VisionMission'
 import Testimonials from './components/Testimonials'
+import TrackShipment from './components/TrackShipment'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -17,6 +18,7 @@ export default function App() {
       <WhyGracey />
       <VisionMission />
       <Testimonials />
+      <TrackShipment />
       <Contact />
       <Footer />
     </div>

@@ -426,6 +426,97 @@ h3 {
 .dot.active { background: var(--orange); width: 24px; border-radius: 4px; }
 
 /* =====================
+   NAVBAR — Track button
+   ===================== */
+.nav-track {
+  background: var(--orange) !important;
+  color: var(--white) !important;
+  border-radius: 8px;
+  padding: 6px 14px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+.nav-track:hover {
+  background: var(--orange-dark) !important;
+  color: var(--white) !important;
+}
+
+/* =====================
+   TRACK SHIPMENT
+   ===================== */
+.track-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.track-text { flex: 1; min-width: 0; }
+
+.track-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-top: 16px;
+}
+
+.track-form-wrap {
+  flex: 0 0 420px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.track-form { display: flex; flex-direction: column; gap: 14px; }
+
+.track-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.7);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.track-form input {
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.08);
+  color: var(--white);
+  font-size: 15px;
+  outline: none;
+  transition: border-color .15s;
+}
+.track-form input::placeholder { color: rgba(255,255,255,.35); }
+.track-form input:focus { border-color: var(--orange-mid); }
+
+.track-form .btn { width: 100%; justify-content: center; }
+.track-form .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.track-note {
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  margin: 0;
+  text-align: center;
+}
+.track-note a { color: var(--orange-mid); text-decoration: none; }
+.track-note a:hover { text-decoration: underline; }
+
+.track-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.track-success-icon { font-size: 40px; }
+.track-success strong { font-size: 18px; color: var(--white); }
+.track-success p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; margin: 0; }
+.track-success p a { color: var(--orange-mid); text-decoration: none; }
+.track-success p strong { font-size: inherit; color: var(--white); }
+
+/* =====================
    CONTACT
    ===================== */
 .contact-row { display: flex; gap: 20px; flex-wrap: wrap; }
@@ -513,4 +604,7 @@ h3 {
   .testimonial-quote { font-size: 18px; }
 
   .contact-tile { width: 100%; }
+
+  .track-inner { flex-direction: column; gap: 48px; }
+  .track-form-wrap { flex: none; width: 100%; }
 }
