@@ -363,16 +363,27 @@ h3 {
 .vm-block p { font-size: 17px; color: rgba(255,255,255,.62); line-height: 1.8; }
 
 /* =====================
-   TESTIMONIALS
+   TESTIMONIALS — Auto-sliding carousel
    ===================== */
-.testimonial-wrap { margin-top: 60px; max-width: 720px; }
+.testimonial-carousel { margin-top: 60px; max-width: 720px; }
 
-.testimonial-body {
-  background: var(--orange-pale);
-  border: 1px solid var(--peach);
+.testimonial-track-wrapper {
+  overflow: hidden;
   border-radius: var(--radius-lg);
+  border: 1px solid var(--peach);
+  background: var(--orange-pale);
+  margin-bottom: 28px;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-slide {
+  min-width: 100%;
   padding: 56px 52px;
-  margin-bottom: 32px;
+  flex-shrink: 0;
 }
 
 .testimonial-quote {
@@ -386,30 +397,6 @@ h3 {
 .testimonial-meta strong { display: block; font-size: 16px; color: var(--ink); font-weight: 700; }
 .testimonial-meta span   { font-size: 14px; color: var(--ink-soft); }
 
-.testimonial-controls {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.t-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid var(--ink-faint);
-  background: var(--white);
-  font-size: 16px;
-  cursor: pointer;
-  color: var(--ink-mid);
-  transition: all .15s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.t-btn:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
-.t-counter { font-size: 14px; color: var(--ink-soft); font-weight: 500; }
-
 .t-dots { display: flex; gap: 6px; }
 .dot {
   width: 8px; height: 8px;
@@ -417,9 +404,9 @@ h3 {
   border: none;
   background: var(--ink-faint);
   cursor: pointer;
-  transition: background .15s, transform .15s;
+  transition: background .2s, width .2s, transform .15s;
 }
-.dot.active { background: var(--orange); transform: scale(1.35); }
+.dot.active { background: var(--orange); width: 24px; border-radius: 4px; }
 
 /* =====================
    CONTACT
@@ -504,7 +491,7 @@ h3 {
   .vm-block:last-child  { padding-left: 0; padding-top: 40px; }
   .vm-divider { display: none; }
 
-  .testimonial-body { padding: 36px 28px; }
+  .testimonial-slide { padding: 36px 28px; }
   .testimonial-quote { font-size: 18px; }
 
   .contact-tile { width: 100%; }
