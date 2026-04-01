@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logo from '../assets/logo.png'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -7,7 +8,8 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-inner">
         <a href="#home" className="nav-logo">
-          <span>🚚</span> Gracey Logistics
+          <img src={logo} alt="Gracey Logistics Services" className="nav-logo-img" />
+          Gracey Logistics
         </a>
         <button className="nav-toggle" onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu">
           <span /><span /><span />

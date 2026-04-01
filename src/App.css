@@ -167,6 +167,11 @@ h3 {
   gap: 8px;
   letter-spacing: -.2px;
 }
+.nav-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
 
 .nav-links { list-style: none; display: flex; gap: 4px; }
 .nav-links a {
@@ -547,7 +552,8 @@ h3 {
 
 .footer-inner { display: flex; flex-direction: column; gap: 10px; }
 
-.footer-brand { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.footer-brand { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+.footer-logo-img { width: 36px; height: 36px; object-fit: contain; }
 .footer p { font-size: 14px; color: rgba(255,255,255,.5); }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,.25); margin-top: 32px; }
 
