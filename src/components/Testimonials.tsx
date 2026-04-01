@@ -43,22 +43,16 @@ const testimonials = [
   },
 ]
 
-const INTERVAL = 4500
-
 export default function Testimonials() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const goTo = (index: number) => {
-    setCurrent(index)
-  }
-
   useEffect(() => {
     if (paused) return
     timerRef.current = setInterval(() => {
       setCurrent((c) => (c + 1) % testimonials.length)
-    }, INTERVAL)
+    }, 4000)
     return () => {
       if (timerRef.current) clearInterval(timerRef.current)
     }
@@ -80,7 +74,7 @@ export default function Testimonials() {
               style={{ transform: `translateX(-${current * 100}%)` }}
             >
               {testimonials.map((t, i) => (
-                <div className="testimonial-slide" key={i}>
+                <div className="testimonial-card" key={i}>
                   <p className="testimonial-quote">&ldquo;{t.text}&rdquo;</p>
                   <div className="testimonial-meta">
                     <strong>{t.name}</strong>
@@ -95,7 +89,7 @@ export default function Testimonials() {
               <button
                 key={i}
                 className={`dot${i === current ? ' active' : ''}`}
-                onClick={() => goTo(i)}
+                onClick={() => setCurrent(i)}
                 aria-label={`Testimonial ${i + 1}`}
               />
             ))}

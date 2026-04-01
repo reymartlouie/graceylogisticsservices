@@ -363,15 +363,21 @@ h3 {
 .vm-block p { font-size: 17px; color: rgba(255,255,255,.62); line-height: 1.8; }
 
 /* =====================
-   TESTIMONIALS — Auto-sliding carousel
+   TESTIMONIALS — One-card carousel
    ===================== */
-.testimonial-carousel { margin-top: 60px; max-width: 720px; }
+.testimonial-carousel {
+  margin-top: 60px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .testimonial-track-wrapper {
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--peach);
   background: var(--orange-pale);
+  height: 320px;
   margin-bottom: 28px;
 }
 
@@ -380,31 +386,42 @@ h3 {
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.testimonial-slide {
+.testimonial-card {
   min-width: 100%;
-  padding: 56px 52px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+  padding: 48px 56px;
+  box-sizing: border-box;
 }
 
 .testimonial-quote {
-  font-size: 21px;
+  font-size: 22px;
   color: var(--ink-mid);
-  line-height: 1.72;
+  line-height: 1.75;
   font-style: italic;
-  margin-bottom: 32px;
+  margin: 0;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .testimonial-meta strong { display: block; font-size: 16px; color: var(--ink); font-weight: 700; }
 .testimonial-meta span   { font-size: 14px; color: var(--ink-soft); }
 
-.t-dots { display: flex; gap: 6px; }
+.t-dots { display: flex; gap: 8px; justify-content: center; }
 .dot {
   width: 8px; height: 8px;
   border-radius: 50%;
   border: none;
   background: var(--ink-faint);
   cursor: pointer;
-  transition: background .2s, width .2s, transform .15s;
+  transition: background .2s, width .2s;
 }
 .dot.active { background: var(--orange); width: 24px; border-radius: 4px; }
 
@@ -491,7 +508,8 @@ h3 {
   .vm-block:last-child  { padding-left: 0; padding-top: 40px; }
   .vm-divider { display: none; }
 
-  .testimonial-slide { padding: 36px 28px; }
+  .testimonial-track-wrapper { height: 300px; }
+  .testimonial-card { padding: 36px 32px; }
   .testimonial-quote { font-size: 18px; }
 
   .contact-tile { width: 100%; }
