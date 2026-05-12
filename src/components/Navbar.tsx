@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import logo from '../assets/logo-new.webp'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -15,7 +14,7 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-inner">
         <a href="#home" className="nav-logo">
-          <img src={logo} alt="Gracey Logistics Services" className="nav-logo-img" />
+          <img src="/logo-new.webp" alt="Gracey Logistics Services" className="nav-logo-img" />
           Gracey Logistics Services
         </a>
         <button className="nav-toggle" onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu">

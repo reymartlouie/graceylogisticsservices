@@ -1,8 +1,6 @@
-import heroBg from '../assets/hero-truck.webp'
-
 export default function Hero() {
   return (
-    <section className="hero" id="home" style={{ backgroundImage: `url(${heroBg})` }}>
+    <section className="hero" id="home" style={{ backgroundImage: `url(/hero-truck.webp)` }}>
       <div className="hero-overlay" />
       <div className="hero-inner">
         <p className="hero-eyebrow">Trusted Freight Transport · Philippines</p>

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import logo from '../assets/logo-new.webp'
 import LegalModal from './LegalModal'
 
 type Policy = 'terms' | 'privacy'
@@ -13,7 +12,7 @@ export default function Footer() {
         <div className="inner footer-inner">
           <div className="footer-left">
             <div className="footer-brand">
-              <img src={logo} alt="Gracey Logistics Services" className="footer-logo-img" />
+              <img src="/logo-new.webp" alt="Gracey Logistics Services" className="footer-logo-img" />
               Gracey Logistics Services
             </div>
             <p className="footer-tagline">Safe, efficient, and cost-effective freight across the Philippines.</p>
