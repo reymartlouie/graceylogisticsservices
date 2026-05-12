@@ -1,27 +1,27 @@
 const services = [
   {
     icon: '🚛',
-    title: 'Full Truckload & Less-than-Truckload',
+    title: 'Full Truckload (FTL) & Less-than-Truckload (LTL) Shipping',
     description:
-      'Dedicated full-vehicle transit and cost-effective partial-load options — FTL for large shipments, LTL for businesses that need flexibility without the full cost.',
+      'Whether you have enough cargo to fill an entire vehicle or just a few pallets, we provide versatile shipping configurations to optimize your costs. Our FTL services offer dedicated transit for maximum speed, while our LTL solutions provide a cost-effective way for smaller businesses to access our nationwide network.',
   },
   {
     icon: '🗺️',
-    title: 'Long-Haul & Short-Haul Trucking',
+    title: 'Regional & Nationwide Trucking Operations',
     description:
-      'Reliable trucking operations across Metro Manila, North, and South — moving goods throughout the Philippines with a modern, GPS-enabled fleet.',
+      'We bridge the distance across the Philippines, with specialized operations in Metro Manila, North, and South Luzon. Our modern fleet is maintained for maximum efficiency and safety, ensuring that no matter the destination, your goods arrive in excellent condition.',
   },
   {
     icon: '📦',
-    title: 'Customized Logistics Solutions',
+    title: 'Strategic Business Logistics Support',
     description:
-      'Scalable supply chain support tailored for small, medium, and large businesses — built around your cargo, your schedule, and your budget.',
+      'We offer scalable solutions designed for small, medium, and large businesses. From regular inventory transfers to specialized freight forwarding across Luzon and Visayas, we provide a customer-first approach backed by a 24/7 support system.',
   },
   {
     icon: '📍',
-    title: 'Door-to-Door & Last-Mile Delivery',
+    title: 'Premium Last-Mile & Door-to-Door Delivery',
     description:
-      'End-to-end shipment management with real-time GPS tracking from pickup to final destination, backed by 24/7 customer service.',
+      'We manage the entire journey, picking up from your facility and delivering directly to the destination. By combining real-time GPS tracking with a strong safety culture, we ensure a seamless last-mile experience that protects your cargo and your reputation.',
   },
 ]
 
@@ -29,7 +29,7 @@ export default function Services() {
   return (
     <section className="section" id="services">
       <div className="inner">
-        <p className="eyebrow">What We Offer</p>
+        <p className="eyebrow">Solutions</p>
         <h2>Built for every<br />shipment, every scale.</h2>
         <p className="lead">
           From single pallets to full truckloads — we handle it all with the same care and precision.
