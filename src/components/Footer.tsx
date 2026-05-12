@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo-new.webp'
 import LegalModal from './LegalModal'
 
 type Policy = 'terms' | 'privacy'
