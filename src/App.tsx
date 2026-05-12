@@ -1,13 +1,13 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import WhyGracey from './components/WhyGracey'
-import VisionMission from './components/VisionMission'
-import Testimonials from './components/Testimonials'
-import TrackShipment from './components/TrackShipment'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Hero from './sections/Hero'
+import Services from './sections/Services'
+import WhyGracey from './sections/WhyGracey'
+import VisionMission from './sections/VisionMission'
+import Testimonials from './sections/Testimonials'
+import TrackShipment from './sections/TrackShipment'
+import Contact from './sections/Contact'
 
 export default function App() {
   return (
