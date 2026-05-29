@@ -1,17 +1,28 @@
 import { useState, useEffect, useRef } from 'react'
 
+const SECTIONS = ['home', 'services', 'why', 'about', 'testimonials', 'track', 'contacts'] as const
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
   const navRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10)
+    const update = () => {
+      setScrolled(window.scrollY > 40)
       setMenuOpen(false)
+
+      const offset = window.scrollY + 120
+      let current = 'home'
+      for (const id of SECTIONS) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= offset) current = id
+      }
+      setActiveSection(current)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
   }, [])
 
   useEffect(() => {
@@ -24,6 +35,9 @@ export default function Navbar() {
     document.addEventListener('mousedown', close)
     return () => document.removeEventListener('mousedown', close)
   }, [menuOpen])
+
+  const isActive = (ids: string | string[]) =>
+    Array.isArray(ids) ? ids.includes(activeSection) : activeSection === ids
 
   return (
     <nav ref={navRef} className={`navbar${scrolled ? ' scrolled' : ''}`}>
@@ -41,11 +55,33 @@ export default function Navbar() {
           <span /><span /><span />
         </button>
         <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-          <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
-          <li><a href="#services" onClick={() => setMenuOpen(false)}>About</a></li>
-          <li><a href="#contacts" onClick={() => setMenuOpen(false)}>Contacts</a></li>
+          <li>
+            <a
+              href="#home"
+              className={isActive('home') ? 'active' : ''}
+              onClick={() => setMenuOpen(false)}
+            >Home</a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              className={isActive(['services', 'why', 'about', 'testimonials']) ? 'active' : ''}
+              onClick={() => setMenuOpen(false)}
+            >About</a>
+          </li>
+          <li>
+            <a
+              href="#contacts"
+              className={isActive('contacts') ? 'active' : ''}
+              onClick={() => setMenuOpen(false)}
+            >Contacts</a>
+          </li>
           <li className="nav-track-wrap">
-            <a href="#track" className="nav-track" onClick={() => setMenuOpen(false)}>📦 Track Shipment</a>
+            <a
+              href="#track"
+              className="nav-track"
+              onClick={() => setMenuOpen(false)}
+            >📦 Track Shipment</a>
           </li>
         </ul>
       </div>
