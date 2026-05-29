@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import AnimateIn from '../components/AnimateIn'
 
 const testimonials = [
   {
@@ -66,44 +67,48 @@ export default function Testimonials() {
   return (
     <section className="section" id="testimonials">
       <div className="inner">
-        <p className="eyebrow">Client Stories</p>
-        <h2>Real results.<br />Real clients.</h2>
+        <AnimateIn>
+          <p className="eyebrow">04 · Reviews</p>
+          <h2>Real results.<br />Real clients.</h2>
+        </AnimateIn>
 
-        <div className="t3-viewport">
-          <div
-            className="t3-track"
-            style={{ transform: `translateX(-${page * 100}%)` }}
-          >
-            {pages.map((group, gi) => (
-              <div className="t3-page" key={gi}>
-                {group.map((t) => (
-                  <div className="tcard" key={t.name}>
-                    <span className="tcard-quote">&ldquo;</span>
-                    <p className="tcard-text">{t.text}</p>
-                    <div className="tcard-footer">
-                      <div className="tcard-avatar">{initials(t.name)}</div>
-                      <div>
-                        <strong className="tcard-name">{t.name}</strong>
-                        <span className="tcard-loc">{t.location}</span>
+        <AnimateIn animation="scroll-animate" delay={200}>
+          <div className="t3-viewport">
+            <div
+              className="t3-track"
+              style={{ transform: `translateX(-${page * 100}%)` }}
+            >
+              {pages.map((group, gi) => (
+                <div className="t3-page" key={gi}>
+                  {group.map((t) => (
+                    <div className="tcard" key={t.name}>
+                      <span className="tcard-quote">&ldquo;</span>
+                      <p className="tcard-text">{t.text}</p>
+                      <div className="tcard-footer">
+                        <div className="tcard-avatar">{initials(t.name)}</div>
+                        <div>
+                          <strong className="tcard-name">{t.name}</strong>
+                          <span className="tcard-loc">{t.location}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="t3-dots">
+            {pages.map((_, i) => (
+              <button
+                key={i}
+                className={`t3-dot${i === page ? ' active' : ''}`}
+                onClick={() => setPage(i)}
+                aria-label={`Page ${i + 1}`}
+              />
             ))}
           </div>
-        </div>
-
-        <div className="t3-dots">
-          {pages.map((_, i) => (
-            <button
-              key={i}
-              className={`t3-dot${i === page ? ' active' : ''}`}
-              onClick={() => setPage(i)}
-              aria-label={`Page ${i + 1}`}
-            />
-          ))}
-        </div>
+        </AnimateIn>
       </div>
     </section>
   )

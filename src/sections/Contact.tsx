@@ -1,32 +1,62 @@
+import AnimateIn from '../components/AnimateIn'
+
+const tiles = [
+  {
+    href: 'tel:09271739599',
+    icon: '📞',
+    label: 'Phone / SMS',
+    value: '0927 1739 599',
+    isLink: true,
+  },
+  {
+    href: 'mailto:gracey.logisticsservices@gmail.com',
+    icon: '✉️',
+    label: 'Email',
+    value: 'gracey.logisticsservices@gmail.com',
+    isLink: true,
+  },
+  {
+    href: undefined,
+    icon: '📍',
+    label: 'Address',
+    value: 'Brgy. Catmon, Sta. Maria, Bulacan',
+    isLink: false,
+  },
+]
+
 export default function Contact() {
   return (
     <section className="section section-warm" id="contacts">
       <div className="inner">
-        <p className="eyebrow">Get in Touch</p>
-        <h2>Ready to move<br />your cargo?</h2>
-        <p className="lead">Reach out and we'll get your shipment moving.</p>
+        <AnimateIn>
+          <p className="eyebrow">06 · Contact</p>
+          <h2>Let's move<br />your cargo.</h2>
+          <p className="lead">Reach out and we'll get your shipment moving.</p>
+        </AnimateIn>
         <div className="contact-row">
-          <a className="contact-tile" href="tel:09271739599">
-            <span className="contact-tile-icon">📞</span>
-            <div>
-              <strong>Phone / SMS</strong>
-              <p>0927 1739 599</p>
-            </div>
-          </a>
-          <a className="contact-tile" href="mailto:gracey.logisticsservices@gmail.com">
-            <span className="contact-tile-icon">✉️</span>
-            <div>
-              <strong>Email</strong>
-              <p>gracey.logisticsservices@gmail.com</p>
-            </div>
-          </a>
-          <div className="contact-tile">
-            <span className="contact-tile-icon">📍</span>
-            <div>
-              <strong>Address</strong>
-              <p>Brgy. Catmon, Sta. Maria, Bulacan</p>
-            </div>
-          </div>
+          {tiles.map((t, i) =>
+            t.isLink ? (
+              <AnimateIn animation="scroll-animate-scale" delay={i * 110} key={t.label}>
+                <a className="contact-tile" href={t.href}>
+                  <span className="contact-tile-icon">{t.icon}</span>
+                  <div>
+                    <strong>{t.label}</strong>
+                    <p>{t.value}</p>
+                  </div>
+                </a>
+              </AnimateIn>
+            ) : (
+              <AnimateIn animation="scroll-animate-scale" delay={i * 110} key={t.label}>
+                <div className="contact-tile">
+                  <span className="contact-tile-icon">{t.icon}</span>
+                  <div>
+                    <strong>{t.label}</strong>
+                    <p>{t.value}</p>
+                  </div>
+                </div>
+              </AnimateIn>
+            )
+          )}
         </div>
       </div>
     </section>
